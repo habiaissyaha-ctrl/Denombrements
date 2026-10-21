@@ -15,58 +15,58 @@ namespace Denombrements
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-            int c = 1;
+            int choix = 1;
 
             //Affichage et saisie du choix avec controle de saisie et traitements différents selon le choix
-            while (c != 0)
+            while (choix != 0)
             {
                 Console.WriteLine("Permutation ...................... 1");
                 Console.WriteLine("Arrangement ...................... 2");
                 Console.WriteLine("Combinaison ...................... 3");
                 Console.WriteLine("Quitter .......................... 0");
                 Console.Write("Choix :                            ");
-                c = int.Parse(Console.ReadLine());
+                choix = int.Parse(Console.ReadLine());
 
-                if (c == 0) { Environment.Exit(0); }
+                if (choix == 0) { Environment.Exit(0); }
 
                 //choix de la permutation
-                if (c == 1)
+                if (choix == 1)
                 {
                     Console.Write("nombre total d'éléments à gérer = ");
-                    int n = int.Parse(Console.ReadLine());
-                    long r = 1;
-                    for (int k = 1; k <= n; k++)
-                        r *= k;
-                    Console.WriteLine(n + "! = " + r);
+                    int nombreTotal = int.Parse(Console.ReadLine());
+                    long resultat = 1;
+                    for (int k = 1; k <= nombreTotal; k++)
+                        resultat *= k;
+                    Console.WriteLine(nombreTotal + "! = " + resultat);
                 }
                 else
                 {
                     //choix de l'arrangement
-                    if (c == 2)
+                    if (choix == 2)
                     {
                         Console.Write("nombre total d'éléments à gérer = ");
-                        int t = int.Parse(Console.ReadLine());
+                        int nombreTotal = int.Parse(Console.ReadLine());
                         Console.Write("nombre d'éléments dans le sous ensemble = ");
-                        int n = int.Parse(Console.ReadLine());
-                        long r = 1;
-                        for (int k = (t - n + 1); k <= t; k++)
-                            r *= k;
-                        Console.WriteLine("A(" + t + "/" + n + ") = " + r);
+                        int nombreSousEnsemble = int.Parse(Console.ReadLine());
+                        long resultat = 1;
+                        for (int k = (nombreTotal - nombreSousEnsemble + 1); k <= nombreTotal; k++)
+                            resultat *= k;
+                        Console.WriteLine("A(" + nombreTotal + "/" + nombreSousEnsemble + ") = " + resultat);
                     }
                     //choix de la combinaison
                     else
                     {
                         Console.Write("nombre total d'éléments à gérer = ");
-                        int t = int.Parse(Console.ReadLine());
+                        int nombreTotal = int.Parse(Console.ReadLine());
                         Console.Write("nombre d'éléments dans le sous ensemble = ");
-                        int n = int.Parse(Console.ReadLine());
-                        long r1 = 1;
-                        for (int k = (t - n + 1); k <= t; k++)
-                            r1 *= k;
-                        long r2 = 1;
-                        for (int k = 1; k <= n; k++)
-                            r2 *= k;
-                        Console.WriteLine("C(" + t + "/" + n + ") = " + (r1 / r2));
+                        int nombreSousEnsemble = int.Parse(Console.ReadLine());
+                        long resultat1 = 1;
+                        for (int k = (nombreTotal - nombreSousEnsemble + 1); k <= nombreTotal; k++)
+                            resultat1 *= k;
+                        long resultat2 = 1;
+                        for (int k = 1; k <= nombreSousEnsemble; k++)
+                            resultat2 *= k;
+                        Console.WriteLine("C(" + nombreTotal + "/" + nombreSousEnsemble + ") = " + (resultat1 / resultat2));
                     }
                 }
             }
