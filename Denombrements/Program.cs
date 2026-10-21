@@ -45,8 +45,8 @@ namespace Denombrements
                     if (c == 2)
                     {
                         Console.Write("nombre total d'éléments à gérer = ");
-                        int t = int.Parse(Console.ReadLine()); 
-                        Console.Write("nombre d'éléments dans le sous ensemble = "); 
+                        int t = int.Parse(Console.ReadLine());
+                        Console.Write("nombre d'éléments dans le sous ensemble = ");
                         int n = int.Parse(Console.ReadLine());
                         long r = 1;
                         for (int k = (t - n + 1); k <= t; k++)
@@ -56,8 +56,8 @@ namespace Denombrements
                     //choix de la combinaison
                     else
                     {
-                        Console.Write("nombre total d'éléments à gérer = "); 
-                        int t = int.Parse(Console.ReadLine()); 
+                        Console.Write("nombre total d'éléments à gérer = ");
+                        int t = int.Parse(Console.ReadLine());
                         Console.Write("nombre d'éléments dans le sous ensemble = ");
                         int n = int.Parse(Console.ReadLine());
                         long r1 = 1;
