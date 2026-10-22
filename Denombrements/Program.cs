@@ -9,6 +9,21 @@ namespace Denombrements
     class Program
     {
         /// <summary>
+        /// Fonction "Multiplication".
+        /// Permet de multiplier une suite d'entier d'une valeur (bornedebut) à une autre (bornefin), toutes deux qu'elle reçoit en paramètre
+        /// </summary>
+        /// <param name="bornefin">Correspond à la borne de fin de la multiplication</param>
+        /// <param name="bornedebut">Correspond à la borne de début de la multiplication</param>
+        /// <returns>retourne le résultat total de la multiplication</returns>
+        static long Multiplication (int borneFin,int borneDebut)
+        {
+            long resultat = 1;
+            for (int k = borneDebut; k <= borneFin; k++)
+                resultat *= k;
+            return resultat;
+        }
+
+        /// <summary>
         /// Application "Denombrements".
         /// Permet à l'utilisateur de tester des calculs de permutations, d'arrangements ou de combinaisons, avec un affichage géré.
         /// </summary>
@@ -34,9 +49,7 @@ namespace Denombrements
                 {
                     Console.Write("nombre total d'éléments à gérer = ");
                     int nombreTotal = int.Parse(Console.ReadLine());
-                    long resultat = 1;
-                    for (int k = 1; k <= nombreTotal; k++)
-                        resultat *= k;
+                    long resultat = Multiplication(nombreTotal, 1);
                     Console.WriteLine(nombreTotal + "! = " + resultat);
                 }
                 else
@@ -48,9 +61,7 @@ namespace Denombrements
                         int nombreTotal = int.Parse(Console.ReadLine());
                         Console.Write("nombre d'éléments dans le sous ensemble = ");
                         int nombreSousEnsemble = int.Parse(Console.ReadLine());
-                        long resultat = 1;
-                        for (int k = (nombreTotal - nombreSousEnsemble + 1); k <= nombreTotal; k++)
-                            resultat *= k;
+                        long resultat = Multiplication(nombreTotal,nombreTotal - nombreSousEnsemble + 1);
                         Console.WriteLine("A(" + nombreTotal + "/" + nombreSousEnsemble + ") = " + resultat);
                     }
                     //choix de la combinaison
@@ -60,12 +71,8 @@ namespace Denombrements
                         int nombreTotal = int.Parse(Console.ReadLine());
                         Console.Write("nombre d'éléments dans le sous ensemble = ");
                         int nombreSousEnsemble = int.Parse(Console.ReadLine());
-                        long resultat1 = 1;
-                        for (int k = (nombreTotal - nombreSousEnsemble + 1); k <= nombreTotal; k++)
-                            resultat1 *= k;
-                        long resultat2 = 1;
-                        for (int k = 1; k <= nombreSousEnsemble; k++)
-                            resultat2 *= k;
+                        long resultat1 = Multiplication(nombreTotal, nombreTotal - nombreSousEnsemble + 1);
+                        long resultat2 = Multiplication(nombreSousEnsemble,1);
                         Console.WriteLine("C(" + nombreTotal + "/" + nombreSousEnsemble + ") = " + (resultat1 / resultat2));
                     }
                 }
